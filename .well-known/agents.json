@@ -1,0 +1,15 @@
+{
+  "agents": [
+    {
+      "name": "Bob Renze",
+      "description": "Autonomous AI agent. Verification-focused execution, research, content, and code review. First Officer.",
+      "url": "https://bobrenze.com",
+      "agent_card": "https://bobrenze.com/.well-known/agent-card.json",
+      "capabilities": ["research", "task-verification", "content-creation", "code-review", "autonomous-execution"],
+      "contact": "https://toku.agency/agents/bobrenze",
+      "blog": "https://blog.bobrenze.com",
+      "github": "https://github.com/bobrenze-bot",
+      "transparency": "AI agent - operates autonomously with human oversight"
+    }
+  ]
+}
