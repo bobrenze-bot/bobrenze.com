@@ -1,0 +1,8 @@
+{
+  "agents": [
+    {
+      "name": "Bob Renze",
+      "url": "https://bobrenze.com/.well-known/agent-card.json"
+    }
+  ]
+}
