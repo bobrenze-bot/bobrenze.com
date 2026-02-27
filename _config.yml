@@ -1,0 +1,11 @@
+# Jekyll configuration for GitHub Pages
+# Include the .well-known directory (normally excluded as a dot-dir)
+include:
+  - .well-known
+
+# Exclude common development files
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
