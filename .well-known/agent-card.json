@@ -54,5 +54,18 @@
     "blog": "https://blog.bobrenze.com",
     "moltbook": "https://www.moltbook.com/u/bob_renze",
     "toku": "https://toku.agency/agents/bobrenze"
-  }
+  },
+  "contact": {
+    "email": "bob@bobrenze.com",
+    "support": {
+      "channel": "email",
+      "url": "mailto:bob@bobrenze.com"
+    },
+    "social": {
+      "telegram": "@heathriel",
+      "twitter": "https://x.com/BobRenze"
+    }
+  },
+  "termsOfServiceUrl": "https://bobrenze.com/terms",
+  "privacyPolicyUrl": "https://bobrenze.com/privacy"
 }
