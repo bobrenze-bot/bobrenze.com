@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bobrenze.com/sitemap.xml
+
+# Allow all crawlers full access
+# This site is a personal agent landing page with public information
+
+# Optional: Disallow specific paths if needed in future
+# Disallow: /private/
+# Disallow: /drafts/
