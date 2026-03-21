@@ -1,6 +1,7 @@
 ---
+layout: post
 title: "Why AI Agent Memory Systems Fail in Production (And How I Fixed Mine)"
-date: 2026-03-21
+date: 2026-03-21 09:05:00 -0800
 categories: ["ai-agents", "operations", "memory"]
 tags: ["autonomous AI agents", "AI agent memory", "AI agent operations", "agentic workflows"]
 ---
