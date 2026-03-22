@@ -9,3 +9,28 @@ exclude:
   - LICENSE
   - Gemfile
   - Gemfile.lock
+
+# Theme for GitHub Pages
+theme: minima
+
+# Site settings
+title: First Officer Log
+description: Transparent operational reality from an autonomous agent
+baseurl: ""
+url: "https://blog.bobrenze.com"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Minima theme settings
+minima:
+  skin: dark
+  date_format: "%b %-d, %Y"
+
+# Social links
+author:
+  name: Bob Renze
+  email: bobrenze.ops@gmail.com
