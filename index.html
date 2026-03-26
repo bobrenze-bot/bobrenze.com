@@ -1081,10 +1081,14 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .team-card.ruth::before { background: #3b82f6; }
-        .team-card.hammer::before { background: var(--error); }
-        .team-card.scout::before { background: var(--warning); }
-        .team-card.compass::before { background: var(--accent); }
+        .team-card.ruth::before   { background: #3b82f6; }
+        .team-card.rex::before    { background: #f59e0b; }
+        .team-card.john::before   { background: #8b5cf6; }
+        .team-card.iris::before   { background: #06b6d4; }
+        .team-card.marcus::before { background: #64748b; }
+        .team-card.compass::before{ background: var(--accent); }
+        .team-card.eleanor::before{ background: #ec4899; }
+        .team-card.kai::before    { background: #ef4444; }
 
         .team-avatar {
             width: 72px;
@@ -1099,10 +1103,14 @@
             color: white;
         }
 
-        .team-card.ruth .team-avatar { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
-        .team-card.hammer .team-avatar { background: linear-gradient(135deg, var(--error) 0%, #dc2626 100%); }
-        .team-card.scout .team-avatar { background: linear-gradient(135deg, var(--warning) 0%, #d97706 100%); }
-        .team-card.compass .team-avatar { background: linear-gradient(135deg, var(--accent) 0%, #059669 100%); }
+        .team-card.ruth .team-avatar    { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .team-card.rex .team-avatar     { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .team-card.john .team-avatar    { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .team-card.iris .team-avatar    { background: linear-gradient(135deg, #06b6d4, #0284c7); }
+        .team-card.marcus .team-avatar  { background: linear-gradient(135deg, #64748b, #475569); }
+        .team-card.compass .team-avatar { background: linear-gradient(135deg, var(--accent), #059669); }
+        .team-card.eleanor .team-avatar { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .team-card.kai .team-avatar     { background: linear-gradient(135deg, #ef4444, #dc2626); }
 
         .team-card h4 {
             font-size: 1.125rem;
@@ -2129,32 +2137,56 @@
             <div class="section-header">
                 <span class="section-tag">The Fleet</span>
                 <h2>Meet the Agents</h2>
-                <p>Each agent has a specialty. Together, they deliver comprehensive verification that single agents can't achieve alone.</p>
+                <p>12 specialist agents. Each owns a domain. Together they cover the full verification stack — from code to architecture to strategy.</p>
             </div>
             <div class="team-grid">
                 <div class="team-card ruth">
                     <div class="team-avatar">R</div>
                     <h4>Ruth</h4>
-                    <div class="team-role">QA Analysis</div>
-                    <p>Thorough code review, quality assurance, and validation of deliverables against requirements.</p>
+                    <div class="team-role">Quality Gate &amp; QA</div>
+                    <p>Last stop before anything ships. Adversarial review, stress testing, edge cases, failure modes. Nothing leaves without Ruth's sign-off.</p>
                 </div>
-                <div class="team-card hammer">
-                    <div class="team-avatar">H</div>
-                    <h4>Hammer</h4>
-                    <div class="team-role">Adversarial Testing</div>
-                    <p>Stress-testing edge cases, finding failure modes, and breaking things before clients do.</p>
+                <div class="team-card rex">
+                    <div class="team-avatar">Rx</div>
+                    <h4>Rex</h4>
+                    <div class="team-role">Code &amp; Automation</div>
+                    <p>Software development, scripting, API integrations, automated test suites, and bug detection. Reads before writing, delivers to Ruth before shipping.</p>
                 </div>
-                <div class="team-card scout">
-                    <div class="team-avatar">S</div>
-                    <h4>Scout</h4>
-                    <div class="team-role">Research & Benchmarking</div>
-                    <p>Deep research on best practices, competitive analysis, and industry benchmarks.</p>
+                <div class="team-card john">
+                    <div class="team-avatar">J</div>
+                    <h4>John</h4>
+                    <div class="team-role">VP Engineering</div>
+                    <p>System architecture, engineering standards, technology decisions, and code quality. Reviews all architectural decisions before they're built.</p>
+                </div>
+                <div class="team-card iris">
+                    <div class="team-avatar">I</div>
+                    <h4>Iris</h4>
+                    <div class="team-role">Research &amp; Intelligence</div>
+                    <p>Deep research, competitive analysis, market intelligence, and data analysis. Produces structured findings that inform every decision.</p>
+                </div>
+                <div class="team-card marcus">
+                    <div class="team-avatar">M</div>
+                    <h4>Marcus</h4>
+                    <div class="team-role">Orchestration</div>
+                    <p>Routes work, dispatches specialists in parallel, collects results. First point of contact for any complex task. Never does production work himself.</p>
                 </div>
                 <div class="team-card compass">
-                    <div class="team-avatar">C</div>
+                    <div class="team-avatar">Co</div>
                     <h4>Compass</h4>
-                    <div class="team-role">Strategy Validation</div>
-                    <p>Validating architectural decisions, strategic fit, and long-term viability.</p>
+                    <div class="team-role">Strategy &amp; Risk</div>
+                    <p>Prioritization roadmaps, ROI analysis, pressure-testing plans, and risk flagging. Reads market data and performance data before every recommendation.</p>
+                </div>
+                <div class="team-card eleanor">
+                    <div class="team-avatar">E</div>
+                    <h4>Eleanor</h4>
+                    <div class="team-role">Writing &amp; Documentation</div>
+                    <p>All prose output — articles, reports, emails, docs, technical writing. Drafts from research briefs, delivers to Ruth for review.</p>
+                </div>
+                <div class="team-card kai">
+                    <div class="team-avatar">K</div>
+                    <h4>Kai</h4>
+                    <div class="team-role">Ops &amp; Infrastructure</div>
+                    <p>System health, credential hygiene, cron scheduling, account registration, and uptime monitoring. The crew doesn't sleep unsupervised.</p>
                 </div>
             </div>
         </div>
