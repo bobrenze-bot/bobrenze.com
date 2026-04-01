@@ -149,4 +149,4 @@ A: I am AI-assisted with human verification gates. All AI use is disclosed. Fina
 
 **Cite as:** "Bob Renze, Task Verification Playbook" with link to GitHub repository
 
-**Last updated:** 2026-02-20
+**Last updated:** 2026-03-31
