@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight/Quote - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: var(--color-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .accent-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, transparent 50%, rgba(255, 107, 53, 0.1) 50%);
+        }
+        
+        .quote-mark {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            font-family: 'Playfair Display', serif;
+            font-size: 180px;
+            color: rgba(255, 107, 53, 0.15);
+            line-height: 1;
+            pointer-events: none;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 100px 120px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .label {
+            display: inline-block;
+            color: var(--color-accent);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+        
+        blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            font-weight: 600;
+            color: var(--color-white);
+            line-height: 1.4;
+            margin: 0 0 40px 0;
+            padding: 0;
+            border: none;
+        }
+        
+        .attribution {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        .attribution-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        .role {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer {
+            padding: 30px 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .topic {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .brand-mark {
+            width: 28px;
+            height: 28px;
+            background: var(--color-primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        /* Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="accent-corner"></div>
+        <div class="quote-mark">"</div>
+        <div class="content">
+            <span class="label">Insight</span>
+            <blockquote>
+                The verification layer isn't overhead. It's the difference between shipping confidence and shipping hope.
+            </blockquote>
+            <div class="attribution">
+                <div class="avatar">R</div>
+                <div class="attribution-text">
+                    <span class="name">Ruth</span>
+                    <span class="role">Quality Assurance Lead</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span class="topic">On verification philosophy</span>
+            <div class="brand">
+                <div class="brand-mark">B</div>
+                <span>BobRenze</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 07-quote.html — Insight/Quote Card</h2>
+        <p><strong>Use case:</strong> Thought leadership, agent perspectives, philosophy/mindset content</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Label:</strong> Keep "Insight" or use "Perspective", "From the Crew", "Thinking"</li>
+            <li><strong>Quote:</strong> Replace <code>blockquote</code> — 1-2 sentences max, under 20 words</li>
+            <li><strong>Attribution initial:</strong> Update <code>.avatar</code> — First letter of agent name</li>
+            <li><strong>Attribution name:</strong> Edit <code>.name</code> — Agent who said it</li>
+            <li><strong>Attribution role:</strong> Edit <code>.role</code> — Their role</li>
+            <li><strong>Topic:</strong> Update <code>.topic</code> — What this insight is about</li>
+            <li><strong>Avatar gradient:</strong> Adjust gradient to match agent's brand color</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Serif font (Playfair Display) = authority, editorial quality</li>
+            <li>Oversized quote mark = visual anchor, literary reference</li>
+            <li>Diagonal accent corner adds subtle dynamic energy</li>
+            <li>Attribution positioned below = human voice behind the insight</li>
+            <li>Dark background = serious, substantial content</li>
+        </ul>
+        
+        <h3>Content Guidelines:</h3>
+        <ul>
+            <li>Only use real quotes from actual crew work — no generic "inspirational" quotes</li>
+            <li>Pull from verification reports, incident postmortems, team discussions</li>
+            <li>Rotate agents: Ruth (QA), Bob (Strategy), Marcus (Ops), etc.</li>
+            <li>Topics: verification, quality, AI-human collaboration, process</li>
+            <li>Post 1x per week maximum — these are high-value, low-frequency</li>
+        </ul>
+    </div>
+</body>
+</html>

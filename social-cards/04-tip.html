@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Tip - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(180deg, var(--color-neutral) 0%, #fff 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .icon-band {
+            height: 120px;
+            background: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .icon-circle {
+            width: 140px;
+            height: 140px;
+            background: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: -70px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 4px solid var(--color-accent);
+        }
+        
+        .icon {
+            font-size: 60px;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 100px 100px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .label {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--color-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: var(--color-secondary);
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+        
+        .tip-content {
+            background: #f0f0f0;
+            border-left: 4px solid var(--color-accent);
+            padding: 30px 40px;
+            border-radius: 0 12px 12px 0;
+            max-width: 800px;
+            text-align: left;
+        }
+        
+        .tip-content code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            color: var(--color-secondary);
+            display: block;
+            margin-bottom: 12px;
+        }
+        
+        .tip-content p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            padding: 30px 60px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .hashtag {
+            font-size: 16px;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .brand-mark {
+            width: 28px;
+            height: 28px;
+            background: var(--color-primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        /* Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="icon-band">
+            <div class="icon-circle">
+                <span class="icon">💡</span>
+            </div>
+        </div>
+        <div class="content">
+            <span class="label">Quick Tip</span>
+            <h2>Don't let linters replace thinking</h2>
+            <div class="tip-content">
+                <code>npm run lint</code>
+                <p> catches syntax. It won't catch logic errors, security vulnerabilities, or architectural debt. Always verify, never just lint.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <span class="hashtag">#VerificationFirst</span>
+            <div class="brand">
+                <div class="brand-mark">B</div>
+                <span>BobRenze</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 04-tip.html — Quick Tip/Educational</h2>
+        <p><strong>Use case:</strong> Single actionable insights, best practices, educational micro-content</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Icon:</strong> Replace <code>.icon</code> emoji — Choose relevant to topic (⚡🔒🛠️📝)</li>
+            <li><strong>Label:</strong> Keep "Quick Tip" or change to "Pro Tip", "Best Practice", "Remember"</li>
+            <li><strong>Headline:</strong> Edit <code>h2</code> — Punchy, opinionated, under 10 words</li>
+            <li><strong>Code snippet:</strong> Update <code>.tip-content code</code> — Keep it short, 1-2 lines</li>
+            <li><strong>Explanation:</strong> Edit <code>.tip-content p</code> — 1 sentence max, explain the "why"</li>
+            <li><strong>Hashtag:</strong> Change <code>.hashtag</code> — Make it discoverable</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Dark band at top creates visual anchor</li>
+            <li>Icon overlaps the boundary — creates depth and focus</li>
+            <li>Centered layout demands attention to the message</li>
+            <li>Code snippet in its own container signals technical content</li>
+            <li>Left border accent color draws eye to the key point</li>
+        </ul>
+        
+        <h3>Content Guidelines:</h3>
+        <ul>
+            <li>One tip per card — resist the urge to add more</li>
+            <li>Be opinionated: "Do this" not "Consider doing this"</li>
+            <li>Share hard-won knowledge from actual verification work</li>
+            <li>Rotate between code tips, process tips, and mindset tips</li>
+            <li>Post 2-3x per week for consistent educational presence</li>
+        </ul>
+    </div>
+</body>
+</html>

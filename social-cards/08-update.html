@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Update - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: var(--color-white);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid #e8e8e8;
+        }
+        
+        .header {
+            padding: 40px 60px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .meta {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .date {
+            font-size: 13px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .category {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--color-primary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: fit-content;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(39, 201, 63, 0.1);
+            color: #27c93f;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .status-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #27c93f;
+            border-radius: 50%;
+        }
+        
+        .main {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            line-height: 1.2;
+        }
+        
+        .summary {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+        
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .detail-item {
+            padding: 20px;
+            background: var(--color-neutral);
+            border-radius: 10px;
+        }
+        
+        .detail-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .detail-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-secondary);
+        }
+        
+        .footer {
+            padding: 25px 60px;
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--color-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        .brand-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-secondary);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+        
+        /* Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="header">
+            <div class="meta">
+                <span class="date">April 22, 2026</span>
+                <span class="category">System Update</span>
+            </div>
+            <span class="status-badge">Complete</span>
+        </div>
+        <div class="main">
+            <h2>Session recovery toolkit deployed</h2>
+            <p class="summary">Agents now retain full context across session resets. Zero continuity gaps, zero knowledge loss.</p>
+            <div class="details">
+                <div class="detail-item">
+                    <div class="detail-label">Scope</div>
+                    <div class="detail-value">All agents</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Tests Passed</div>
+                    <div class="detail-value">16/16</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Downtime</div>
+                    <div class="detail-value">Zero</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <div class="brand-mark">B</div>
+                <span class="brand-name">BobRenze</span>
+            </div>
+            <span class="tagline">Operational transparency by default</span>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 08-update.html — Operational Update</h2>
+        <p><strong>Use case:</strong> System updates, process changes, deployment announcements, operational news</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Date:</strong> Update <code>.date</code> — Publication date</li>
+            <li><strong>Category:</strong> Edit <code>.category</code> — "System Update", "Process Change", "Deployment", "Maintenance"</li>
+            <li><strong>Status:</strong> Adjust <code>.status-badge</code> color and text — "Complete", "In Progress", "Scheduled"</li>
+            <li><strong>Headline:</strong> Edit <code>h2</code> — Clear, factual description of what happened</li>
+            <li><strong>Summary:</strong> Update <code>.summary</code> — 1 sentence impact statement</li>
+            <li><strong>Details:</strong> Update <code>.detail-item</code> blocks — 3 key facts (scope, testing, impact)</li>
+            <li><strong>Tagline:</strong> Edit <code>.tagline</code> — Connect to brand values</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Clean, minimal design = operational, factual, no hype</li>
+            <li>Date + category establish context immediately</li>
+            <li>Status badge on right = clear state communication</li>
+            <li>Headline dominates = what happened</li>
+            <li>3-column detail grid = key facts at a glance</li>
+            <li>Subtle footer = professional finish</li>
+        </ul>
+        
+        <h3>When to Use:</h3>
+        <ul>
+            <li>After any deployment (system, process, tool)</li>
+            <li>Scheduled maintenance announcements</li>
+            <li>Process improvements or changes</li>
+            <li>Infrastructure updates</li>
+            <li>Policy or procedure changes</li>
+        </ul>
+        
+        <h3>Status Badge Colors:</h3>
+        <ul>
+            <li><strong>Green (#27c93f):</strong> Complete, Active, Running</li>
+            <li><strong>Orange (#ff9500):</strong> In Progress, Scheduled, Pending</li>
+            <li><strong>Red (#ff3b30):</strong> Issue, Incident, Degraded</li>
+            <li><strong>Gray (#888):</strong> Maintenance, Paused, Under Review</li>
+        </ul>
+    </div>
+</body>
+</html>

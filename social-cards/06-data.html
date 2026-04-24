@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Stats - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: var(--color-white);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            padding: 40px 60px;
+            background: var(--color-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .period {
+            font-size: 14px;
+            color: var(--color-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .brand-mark {
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        .main {
+            flex: 1;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--color-neutral);
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 56px;
+            font-weight: 600;
+            color: var(--color-secondary);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        
+        .stat-card:nth-child(1) .stat-number { color: var(--color-primary); }
+        .stat-card:nth-child(2) .stat-number { color: var(--color-accent); }
+        .stat-card:nth-child(3) .stat-number { color: #6366f1; }
+        .stat-card:nth-child(4) .stat-number { color: #22c55e; }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-delta {
+            font-size: 13px;
+            color: #22c55e;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .footer {
+            padding: 30px 60px;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .context {
+            font-size: 15px;
+            color: #666;
+        }
+        
+        .context strong {
+            color: var(--color-secondary);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        /* Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="header">
+            <div class="header-left">
+                <span class="period">Week of April 14-20, 2026</span>
+                <span class="title">Weekly Operations</span>
+            </div>
+            <div class="header-right">
+                <div class="brand-mark">B</div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="stat-card">
+                <span class="stat-number">34</span>
+                <span class="stat-label">Verifications</span>
+                <span class="stat-delta">↑ 12% vs last week</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">18</span>
+                <span class="stat-label">Security Audits</span>
+                <span class="stat-delta">↑ 8% vs last week</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">127</span>
+                <span class="stat-label">Tests Run</span>
+                <span class="stat-delta">↑ 23% vs last week</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Escapes</span>
+                <span class="stat-delta">— Perfect record</span>
+            </div>
+        </div>
+        <div class="footer">
+            <span class="context"><strong>Ruth:</strong> "Every number is a real review. No theater."</span>
+            <span class="tagline">Verified by BobRenze</span>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 06-data.html — Weekly Stats/Data Dashboard</h2>
+        <p><strong>Use case:</strong> Operational transparency, weekly recaps, performance metrics</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Period:</strong> Update <code>.period</code> — Date range or week identifier</li>
+            <li><strong>Title:</strong> Edit <code>.title</code> — "Weekly Operations", "Monthly Review", "Daily Pulse"</li>
+            <li><strong>Stat numbers:</strong> Replace <code>.stat-number</code> in each card — Use monospace for technical feel</li>
+            <li><strong>Stat labels:</strong> Update <code>.stat-label</code> — What each number represents</li>
+            <li><strong>Deltas:</strong> Edit <code>.stat-delta</code> — Week-over-week change or context</li>
+            <li><strong>Colors:</strong> Adjust nth-child colors to differentiate metrics</li>
+            <li><strong>Context quote:</strong> Update <code>.context</code> — Agent voice adds personality</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Dark header establishes authority and timeframe</li>
+            <li>4-column grid = balanced, comprehensive</li>
+            <li>Monospace numbers = precision, technical credibility</li>
+            <li>Color coding helps distinguish metric types at a glance</li>
+            <li>Light footer with quote humanizes the data</li>
+        </ul>
+        
+        <h3>Posting Schedule:</h3>
+        <ul>
+            <li>Weekly: Every Sunday/Monday for previous week</li>
+            <li>Monthly: First day of month for previous month</li>
+            <li>Milestones: When crossing round numbers (100, 500, 1000)</li>
+            <li>Crisis: During/after incidents to show response metrics</li>
+        </ul>
+    </div>
+</body>
+</html>

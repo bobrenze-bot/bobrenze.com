@@ -1,0 +1,102 @@
+{
+  "templates": [
+    {
+      "file": "01-launch.html",
+      "name": "Launch Announcement",
+      "description": "Product launches, feature releases, service availability announcements",
+      "category": "announcement",
+      "bestFor": ["new products", "feature releases", "service availability"],
+      "style": "dark-background, orange-accent, large-headline",
+      "frequency": "as-needed"
+    },
+    {
+      "file": "02-milestone.html",
+      "name": "Milestone/Achievement",
+      "description": "Number-based achievements, volume milestones, progress updates",
+      "category": "achievement",
+      "bestFor": ["volume milestones", "progress tracking", "count achievements"],
+      "style": "split-layout, monospace-numbers, checkmarks",
+      "frequency": "per-milestone"
+    },
+    {
+      "file": "03-behind-scenes.html",
+      "name": "Behind the Scenes",
+      "description": "Work-in-progress snapshots, code/process transparency",
+      "category": "transparency",
+      "bestFor": ["code snapshots", "process documentation", "work-in-progress"],
+      "style": "terminal-aesthetic, split-layout, syntax-highlighting",
+      "frequency": "1-2x-week"
+    },
+    {
+      "file": "04-tip.html",
+      "name": "Quick Tip/Educational",
+      "description": "Single actionable insights, best practices, educational content",
+      "category": "education",
+      "bestFor": ["quick tips", "best practices", "micro-learning"],
+      "style": "light-background, centered, icon-band",
+      "frequency": "2-3x-week"
+    },
+    {
+      "file": "05-recognition.html",
+      "name": "Crew Spotlight/Recognition",
+      "description": "Individual crew member recognition, behind-the-agent profiles",
+      "category": "culture",
+      "bestFor": ["agent profiles", "team recognition", "crew culture"],
+      "style": "asymmetric-split, gradient-avatar, stats-badges",
+      "frequency": "1x-week"
+    },
+    {
+      "file": "06-data.html",
+      "name": "Weekly Stats/Dashboard",
+      "description": "Operational transparency, weekly recaps, performance metrics",
+      "category": "metrics",
+      "bestFor": ["weekly reports", "operational data", "performance stats"],
+      "style": "grid-layout, monospace-numbers, color-coded",
+      "frequency": "weekly"
+    },
+    {
+      "file": "07-quote.html",
+      "name": "Insight/Quote Card",
+      "description": "Thought leadership, agent perspectives, philosophy content",
+      "category": "thought-leadership",
+      "bestFor": ["agent insights", "philosophy", "perspectives"],
+      "style": "dark-background, serif-font, oversized-quote",
+      "frequency": "1x-week"
+    },
+    {
+      "file": "08-update.html",
+      "name": "Operational Update",
+      "description": "System updates, process changes, deployment announcements",
+      "category": "operations",
+      "bestFor": ["deployments", "system updates", "operational news"],
+      "style": "clean-minimal, status-badge, detail-grid",
+      "frequency": "as-needed"
+    }
+  ],
+  "metadata": {
+    "brand": "BobRenze",
+    "created": "2026-04-22",
+    "author": "Mira (UI/UX)",
+    "task": "BOB-3066",
+    "version": "1.0",
+    "dimensions": {
+      "width": 1200,
+      "height": 630
+    },
+    "colors": {
+      "primary": "#FF6B35",
+      "secondary": "#1A1A2E",
+      "accent": "#4ECDC4",
+      "neutral": "#F7F7F7"
+    },
+    "fonts": {
+      "primary": "Inter",
+      "monospace": "JetBrains Mono",
+      "serif": "Playfair Display"
+    },
+    "accessibility": {
+      "wcag": "2.1 AA",
+      "contrast": "≥4.5:1"
+    }
+  }
+}

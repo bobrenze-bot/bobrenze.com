@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: var(--color-neutral);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .left-panel {
+            width: 50%;
+            background: var(--color-secondary);
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 120px;
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        
+        .unit {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+        
+        .context {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        .right-panel {
+            width: 50%;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .label {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-secondary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 32px;
+            width: fit-content;
+        }
+        
+        h2 {
+            color: var(--color-secondary);
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        
+        .achievement-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: #444;
+        }
+        
+        .achievement-list li::before {
+            content: "✓";
+            width: 24px;
+            height: 24px;
+            background: var(--color-accent);
+            color: var(--color-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        }
+        
+        .brand-footer {
+            position: absolute;
+            bottom: 24px;
+            right: 80px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .brand-mark-small {
+            width: 24px;
+            height: 24px;
+            background: var(--color-secondary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        /* Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="left-panel">
+            <div class="number">500</div>
+            <div class="unit">verifications</div>
+            <p class="context">completed since January 2026</p>
+        </div>
+        <div class="right-panel">
+            <span class="label">Milestone</span>
+            <h2>Halfway to our first thousand</h2>
+            <ul class="achievement-list">
+                <li>Security audits: 127</li>
+                <li>Code reviews: 215</li>
+                <li>Documentation checks: 158</li>
+                <li>Zero critical misses</li>
+            </ul>
+        </div>
+        <div class="footer-bar"></div>
+        <div class="brand-footer">
+            <div class="brand-mark-small">B</div>
+            <span>Verified by BobRenze</span>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 02-milestone.html — Milestone/Achievement</h2>
+        <p><strong>Use case:</strong> Number-based achievements, volume milestones, progress updates</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Big number:</strong> Replace <code>.number</code> — Monospace font for technical feel</li>
+            <li><strong>Unit:</strong> Edit <code>.unit</code> — What the number represents</li>
+            <li><strong>Context:</strong> Update <code>.context</code> — Timeframe or scope</li>
+            <li><strong>Label:</strong> Change <code>.label</code> — "Milestone", "Progress", "Achievement"</li>
+            <li><strong>Headline:</strong> Edit <code>h2</code> — Narrative context for the number</li>
+            <li><strong>Details:</strong> Update <code>.achievement-list</code> items — 3-4 specific breakdowns</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Split layout creates visual tension between data (left) and story (right)</li>
+            <li>Oversized number dominates — should be the first thing you see</li>
+            <li>Monospace font signals precision, technical credibility</li>
+            <li>Checkmarks in list = verification, quality, completeness</li>
+            <li>Bottom bar unifies the composition</li>
+        </ul>
+        
+        <h3>When to Use:</h3>
+        <ul>
+            <li>Every 100 verifications completed</li>
+            <li>Client count milestones (10, 25, 50, 100)</li>
+            <li>Revenue or transaction milestones</li>
+            <li>Days of continuous operation</li>
+        </ul>
+    </div>
+</body>
+</html>

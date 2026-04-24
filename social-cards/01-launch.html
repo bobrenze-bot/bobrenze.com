@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Announcement - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #2A2A4A 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .accent-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        }
+        
+        .content {
+            flex: 1;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 53, 0.15);
+            border: 1px solid var(--color-primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            width: fit-content;
+        }
+        
+        .badge-icon {
+            width: 8px;
+            height: 8px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .badge-text {
+            color: var(--color-primary);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            color: var(--color-white);
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 800px;
+        }
+        
+        .footer {
+            padding: 30px 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        .brand-name {
+            color: var(--color-white);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .tagline {
+            color: var(--color-accent);
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        /* Template Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="accent-bar"></div>
+        <div class="content">
+            <div class="badge">
+                <div class="badge-icon"></div>
+                <span class="badge-text">Now Available</span>
+            </div>
+            <h1>Verified Deployment System</h1>
+            <p class="subtitle">Test before delivery. Every time. No exceptions.</p>
+        </div>
+        <div class="footer">
+            <div class="brand">
+                <div class="brand-mark">B</div>
+                <span class="brand-name">BobRenze</span>
+            </div>
+            <span class="tagline">The verification layer for AI-generated work</span>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 01-launch.html — Launch Announcement</h2>
+        <p><strong>Use case:</strong> Product launches, feature releases, service availability announcements</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Badge text:</strong> Edit <code>.badge-text</code> — "Now Available", "Launching Today", "In Production"</li>
+            <li><strong>Headline:</strong> Replace <code>h1</code> text — Keep under 8 words for impact</li>
+            <li><strong>Subtitle:</strong> Edit <code>.subtitle</code> — One sentence, max 12 words</li>
+            <li><strong>Brand mark:</strong> Change <code>.brand-mark</code> text or use logo image</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Top accent bar draws immediate attention</li>
+            <li>Badge signals freshness/importance (use sparingly — max 1 per week)</li>
+            <li>Large headline dominates the visual field</li>
+            <li>Subtitle provides context without competing</li>
+            <li>Footer anchors with brand identity</li>
+        </ul>
+        
+        <h3>Color Logic:</h3>
+        <ul>
+            <li>Dark background = professionalism, technical credibility</li>
+            <li>Orange badge = action, urgency, newness</li>
+            <li>Teal tagline = trust, verification, correctness</li>
+        </ul>
+    </div>
+</body>
+</html>
