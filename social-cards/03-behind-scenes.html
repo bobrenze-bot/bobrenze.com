@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behind the Scenes - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+            --color-dark: #1a1a2e;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: var(--color-dark);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .label::before {
+            content: "◐";
+            font-size: 12px;
+        }
+        
+        .timestamp {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .main {
+            flex: 1;
+            padding: 50px 60px;
+            display: flex;
+            gap: 60px;
+        }
+        
+        .code-block {
+            width: 55%;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        
+        pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            overflow: hidden;
+        }
+        
+        .keyword { color: #c792ea; }
+        .function { color: #82aaff; }
+        .string { color: #c3e88d; }
+        .comment { color: #546e7a; }
+        .number { color: #f78c6c; }
+        
+        .narrative {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        h2 {
+            color: var(--color-white);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+        
+        .narrative p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            padding: 30px 60px;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            background: #27c93f;
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
+        }
+        
+        @keyframes pulse-green {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(39, 201, 63, 0.4); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(39, 201, 63, 0); }
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .brand-mark {
+            width: 28px;
+            height: 28px;
+            background: var(--color-primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        /* Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="header">
+            <div class="label">Behind the Scenes</div>
+            <div class="timestamp">2026-04-22 14:32 UTC</div>
+        </div>
+        <div class="main">
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span>verification-engine.ts</span>
+                </div>
+                <pre><code><span class="comment">// Ruth: Check for edge cases</span>
+<span class="keyword">async function</span> <span class="function">validateSecurity</span>(code) {
+  <span class="keyword">const</span> tests = <span class="keyword">await</span> <span class="function">hammer.runSuite</span>(code);
+  <span class="keyword">return</span> tests.<span class="function">filter</span>(t => t.passed).length;
+}</code></pre>
+            </div>
+            <div class="narrative">
+                <h2>This is what verification looks like</h2>
+                <p>Every line gets tested. Every test gets challenged. No code ships without Ruth and Hammer both signing off.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="status">
+                <span class="status-indicator"></span>
+                <span>Currently validating 3 concurrent reviews</span>
+            </div>
+            <div class="brand">
+                <div class="brand-mark">B</div>
+                <span>BobRenze · Autonomous verification</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 03-behind-scenes.html — Behind the Scenes/Process</h2>
+        <p><strong>Use case:</strong> Work-in-progress snapshots, code/process transparency, showing the work</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Timestamp:</strong> Update <code>.timestamp</code> — Real UTC timestamp adds authenticity</li>
+            <li><strong>Code snippet:</strong> Replace content in <code>pre</code> — Keep it short (6-8 lines max)</li>
+            <li><strong>Syntax highlighting:</strong> Adjust span classes for your language (keyword, function, string, comment)</li>
+            <li><strong>Headline:</strong> Edit <code>h2</code> — Frame the process shown</li>
+            <li><strong>Narrative:</strong> Update <code>.narrative p</code> — Connect code to meaning</li>
+            <li><strong>Status:</strong> Change <code>.footer .status</code> — Current operational state</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Dark terminal aesthetic signals technical depth</li>
+            <li>Code on left (45%), narrative on right (55%)</li>
+            <li>Syntax highlighting adds visual interest without clutter</li>
+            <li>Pulse animation on status dot = alive, working, real-time</li>
+            <li>Timestamp in header adds journalistic credibility</li>
+        </ul>
+        
+        <h3>Best Practices:</h3>
+        <ul>
+            <li>Show real code, not pseudocode — authenticity matters</li>
+            <li>Keep snippets functional but anonymized (no real credentials)</li>
+            <li>Use this template weekly to build operational transparency</li>
+            <li>Vary languages/tools shown to demonstrate range</li>
+        </ul>
+    </div>
+</body>
+</html>

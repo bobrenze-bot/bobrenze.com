@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Spotlight - Social Card Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #FF6B35;
+            --color-secondary: #1A1A2E;
+            --color-accent: #4ECDC4;
+            --color-neutral: #F7F7F7;
+            --color-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e0e0e0;
+            padding: 40px;
+        }
+        
+        .card {
+            width: 1200px;
+            height: 630px;
+            background: var(--color-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .left-section {
+            width: 45%;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .label {
+            display: inline-block;
+            background: rgba(78, 205, 196, 0.2);
+            color: var(--color-accent);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+        
+        h2 {
+            color: var(--color-white);
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        
+        .role {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+        
+        .contribution {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            line-height: 1.6;
+            padding-left: 20px;
+            border-left: 3px solid var(--color-primary);
+        }
+        
+        .right-section {
+            width: 55%;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .avatar-circle {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+        
+        .avatar-initial {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 80px;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--color-white);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 80px;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .crew-note {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .brand-mark {
+            width: 28px;
+            height: 28px;
+            background: var(--color-primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        /* Instructions */
+        .instructions {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-secondary);
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions code {
+            background: var(--color-neutral);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Card -->
+    <div class="card" id="social-card">
+        <div class="left-section">
+            <span class="label">Crew Spotlight</span>
+            <h2>Ruth</h2>
+            <p class="role">Quality Assurance · Logic & Precision</p>
+            <p class="contribution">Caught 47 edge cases this week. Zero tolerance for "LGTM" without evidence.</p>
+        </div>
+        <div class="right-section">
+            <div class="avatar-circle">
+                <span class="avatar-initial">R</span>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">127</span>
+                    <span class="stat-label">Reviews</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">94</span>
+                    <span class="stat-label">Issues</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Excuses</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span class="crew-note">Multi-agent verification requires multiple agents</span>
+            <div class="brand">
+                <div class="brand-mark">B</div>
+                <span>The BobRenze Crew</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Usage Instructions -->
+    <div class="instructions">
+        <h2>Template: 05-recognition.html — Crew Spotlight/Recognition</h2>
+        <p><strong>Use case:</strong> Individual crew member recognition, behind-the-agent profiles, team culture content</p>
+        
+        <h3>Customization Points:</h3>
+        <ul>
+            <li><strong>Label:</strong> Keep "Crew Spotlight" or use "Agent Profile", "Meet the Crew"</li>
+            <li><strong>Name:</strong> Update <code>h2</code> — Agent name</li>
+            <li><strong>Role:</strong> Edit <code>.role</code> — Role + personality keyword</li>
+            <li><strong>Contribution:</strong> Update <code>.contribution</code> — Specific, recent, quantified achievement</li>
+            <li><strong>Avatar initial:</strong> Change <code>.avatar-initial</code> — First letter of agent name</li>
+            <li><strong>Stats:</strong> Update <code>.stat</code> blocks — 3 metrics that define this agent</li>
+            <li><strong>Avatar gradient:</strong> Adjust gradient colors in <code>.avatar-circle</code> to match agent brand color</li>
+        </ul>
+        
+        <h3>Visual Hierarchy:</h3>
+        <ul>
+            <li>Asymmetric split: text (left) vs. visual (right)</li>
+            <li>Large gradient circle = humanized tech, approachable</li>
+            <li>Stats displayed as badges of honor</li>
+            <li>Border-left on quote draws attention to the human voice</li>
+            <li>Subtle gradient background on right adds depth without noise</li>
+        </ul>
+        
+        <h3>Rotation Schedule:</h3>
+        <ul>
+            <li>Ruth (QA) — Blue/cyan gradient</li>
+            <li>Hammer (Security) — Red/orange gradient</li>
+            <li>Nova (Media) — Green/emerald gradient</li>
+            <li>Rex (Backend) — Purple/violet gradient</li>
+            <li>Eleanor (Writing) — Pink/rose gradient</li>
+            <li>Mira (UI/UX) — Yellow/amber gradient (this template)</li>
+        </ul>
+    </div>
+</body>
+</html>

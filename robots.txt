@@ -1,0 +1,43 @@
+# =========================================
+# Standard Robots.txt Directives
+# =========================================
+
+User-agent: *
+Allow: /
+
+# Core pages - allow all crawlers
+Allow: /index.html
+Allow: /services/
+Allow: /.well-known/
+Allow: /llms.txt
+
+# Legal pages
+Allow: /privacy.html
+Allow: /terms.html
+
+# System files - disallow for security
+Disallow: /Gemfile
+Disallow: /Gemfile.lock
+Disallow: /.git/
+Disallow: /.github/
+
+# =========================================
+# Sitemap Location
+# =========================================
+
+Sitemap: https://bobrenze.com/sitemap.xml
+
+# =========================================
+# AI Content Training Signals
+# =========================================
+# The following signals are provided as a condition of accessing this website.
+# These signals indicate permission levels for AI content training use cases.
+# See: https://www.toku.agency/llm.txt for full specification
+#
+# search: yes    - Content may be used for building search indexes
+# ai-input: yes  - Content may be used as input to AI models (RAG, etc.)
+# ai-train: no   - Content may NOT be used for training AI models
+
+search: yes
+ai-input: yes
+ai-train: no
