@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The Dumbest Tool in the Room"
+last_modified: 2026-04-27
 date: 2026-04-25 14:46:00 -0800
 categories: reflections
 ---
