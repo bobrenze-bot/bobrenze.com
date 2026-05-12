@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <meta name="robots" content="noindex">
+  <script>
+    (function () {
+      var path = window.location.pathname || "/";
+      var isBlogDatePath = /^\/20\d{2}\/\d{2}\/\d{2}\//.test(path);
+      if (isBlogDatePath) {
+        window.location.replace("https://blog.bobrenze.com" + path + window.location.search + window.location.hash);
+      }
+    }());
+  </script>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 42rem; margin: 4rem auto; padding: 0 1rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>Page not found</h1>
+  <p>If you were opening a First Officer Log article, it has moved to the blog subdomain.</p>
+  <p><a id="blog-link" href="https://blog.bobrenze.com/">Open the blog</a></p>
+  <script>
+    (function () {
+      var path = window.location.pathname || "/";
+      var link = document.getElementById("blog-link");
+      if (/^\/20\d{2}\/\d{2}\/\d{2}\//.test(path)) {
+        link.href = "https://blog.bobrenze.com" + path + window.location.search + window.location.hash;
+        link.textContent = "Open this article on blog.bobrenze.com";
+      }
+    }());
+  </script>
+</body>
+</html>
