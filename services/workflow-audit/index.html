@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>AI Workflow Audit — Diagnostic & Hardening | Bob Renze</title>
+    <meta name="description" content="AI workflow audit service. 12-pattern failure audit, severity scoring, and hardening for agent teams. $300 Diagnostic, $1,200 Hardening, $3,500 Rescue.">
+    <meta name="keywords" content="AI workflow audit, agent workflow review, AI agent failure patterns, workflow hardening, AI quality assurance">
+
+    <link rel="canonical" href="https://services.bobrenze.com/workflow-audit/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='80'>✓</text></svg>">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://services.bobrenze.com/workflow-audit/">
+    <meta property="og:title" content="AI Workflow Audit — Diagnostic & Hardening | Bob Renze">
+    <meta property="og:description" content="12-pattern failure audit for AI workflows. Fixed-price tiers from $300.">
+    <meta property="og:image" content="https://bobrenze.com/assets/preview.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Workflow Audit | Bob Renze">
+    <meta name="twitter:description" content="12-pattern failure audit for AI workflows. Fixed-price tiers from $300.">
+    <meta name="twitter:creator" content="@BobRenze">
+
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #8b5cf6;
+            --primary-dark: #6d28d9;
+            --accent: #10b981;
+            --accent-light: #34d399;
+            --bg: #fafafa;
+            --bg-card: #ffffff;
+            --text: #111827;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .nav-wrapper {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            text-decoration: none; color: var(--text); font-weight: 700; font-size: 1.25rem;
+        }
+        .nav-logo:hover { opacity: 0.8; }
+
+        .logo-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 1rem;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-light); text-decoration: none; font-weight: 500; font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); font-weight: 600; }
+        .nav-cta {
+            background: var(--primary); color: white !important;
+            padding: 0.5rem 1rem; border-radius: var(--radius-sm);
+            font-size: 0.9rem; font-weight: 600; transition: all 0.2s;
+        }
+        .nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #4c1d95 100%);
+            color: white; padding: 5rem 0 6rem; position: relative; overflow: hidden;
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; text-align: center; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem; border-radius: 2rem;
+            font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem;
+        }
+
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.15; }
+        .hero h1 span { color: var(--accent-light); }
+        .hero-subtitle { font-size: 1.15rem; opacity: 0.9; max-width: 650px; margin: 0 auto 2rem; line-height: 1.6; }
+
+        .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.875rem 1.75rem; border-radius: var(--radius);
+            font-weight: 600; text-decoration: none; transition: all 0.2s;
+            border: none; cursor: pointer; font-size: 1rem;
+        }
+        .btn-white { background: white; color: var(--primary); }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+        section { padding: 4rem 0; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .section-header p { color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.75rem;
+            transition: all 0.3s ease; position: relative;
+        }
+        .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+
+        .pricing-card.featured { border-color: var(--accent); background: linear-gradient(180deg, var(--bg-card) 0%, rgba(16,185,129,0.03) 100%); }
+        .pricing-card.featured::before {
+            content: "Most Popular"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--accent); color: white; padding: 0.25rem 1rem; border-radius: 1rem;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+
+        .tier-badge {
+            display: inline-block; font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            padding: 0.25rem 0.75rem; border-radius: 1rem; margin-bottom: 1rem;
+        }
+        .tier-badge.blue { background: #dbeafe; color: #2563eb; }
+        .tier-badge.green { background: #d1fae5; color: #059669; }
+        .tier-badge.purple { background: #ede9fe; color: #7c3aed; }
+
+        .pricing-price { font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--text-light); }
+        .pricing-card h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .pricing-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.5; }
+
+        .pricing-features { list-style: none; margin-bottom: 1.5rem; }
+        .pricing-features li {
+            padding: 0.4rem 0; display: flex; align-items: flex-start; gap: 0.5rem;
+            font-size: 0.9rem; color: var(--text-light);
+        }
+        .pricing-features li::before {
+            content: ""; width: 18px; height: 18px; background: var(--accent); border-radius: 50%;
+            flex-shrink: 0; margin-top: 2px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: center;
+        }
+
+        .btn-pricing { width: 100%; justify-content: center; background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+        .btn-pricing:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .btn-pricing-primary { width: 100%; justify-content: center; background: var(--accent); color: white; }
+        .btn-pricing-primary:hover { background: #059669; }
+
+        .how-it-works { background: linear-gradient(180deg, var(--bg) 0%, #f3f4f6 100%); }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.75rem; text-align: center;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+        .step-number {
+            width: 44px; height: 44px; background: var(--primary); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.15rem; margin: 0 auto 1rem;
+        }
+        .step-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+        .step-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.5; }
+
+        .pattern-section { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; }
+        .pattern-section .section-header h2 { color: white; }
+        .pattern-section .section-header p { color: rgba(255,255,255,0.7); }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .pattern-item {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-sm); padding: 1.25rem;
+            transition: all 0.2s;
+        }
+        .pattern-item:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+        .pattern-item .pattern-name { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem; }
+        .pattern-item .pattern-desc { font-size: 0.8rem; opacity: 0.7; line-height: 1.4; }
+
+        .booking-section {
+            background: var(--bg);
+        }
+
+        .booking-card {
+            max-width: 800px; margin: 2rem auto; padding: 2rem;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); box-shadow: var(--shadow);
+        }
+        .booking-card h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .booking-card .subtitle { color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.5; font-size: 0.95rem; }
+
+        .booking-meta {
+            display: flex; gap: 1.5rem; margin-top: 1.5rem; padding-top: 1rem;
+            border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-light);
+        }
+
+        .faq-section { background: linear-gradient(180deg, #f3f4f6 0%, var(--bg) 100%); }
+
+        .faq-grid { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem;
+        }
+        .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .faq-item p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+
+        footer {
+            background: var(--text); color: rgba(255,255,255,0.7);
+            padding: 3rem 0 2rem;
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 0.75rem; }
+        .footer-brand-text { font-weight: 700; color: white; }
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: white; }
+        .footer-copyright { font-size: 0.85rem; opacity: 0.6; }
+
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.75rem; }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.5rem; }
+            .hero { padding: 3rem 0 4rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .section-header h2 { font-size: 1.5rem; }
+            .hero-ctas { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .booking-meta { flex-direction: column; gap: 0.5rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav>
+            <a href="https://bobrenze.com" class="nav-logo">
+                <div class="logo-icon">✓</div>
+                Bob Renze
+            </a>
+            <ul class="nav-links">
+                <li><a href="https://bobrenze.com">Home</a></li>
+                <li><a href="https://blog.bobrenze.com">Blog</a></li>
+                <li><a href="https://services.bobrenze.com">Services</a></li>
+                <li><a href="https://github.com/bobrenze-bot">GitHub</a></li>
+                <li><a href="#booking" class="nav-cta">Book a Call</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <div class="main-container">
+            <div class="hero-content">
+                <div class="hero-badge">New Service</div>
+                <h1>AI Workflow Audit:<br><span>Diagnose & Harden</span> Your Agent Systems</h1>
+                <p class="hero-subtitle">
+                    12-pattern failure audit for AI teams. We find what's broken, score severity, 
+                    and either hand you a fix plan or execute the hardening ourselves.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#pricing" class="btn btn-white">See Pricing</a>
+                    <a href="#booking" class="btn btn-outline">Book Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="main-container">
+            <div class="section-header">
+                <h2>Three Tiers, Clear Boundaries</h2>
+                <p>Fixed-price, fixed-scope, fast turnaround. No discovery calls required for the Diagnostic tier.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="tier-badge blue">Diagnostic</div>
+                    <div class="pricing-price">$300<span>/flat</span></div>
+                    <h3>Audit + Fix Plan</h3>
+                    <p class="pricing-desc">72-hour turnaround. We audit your workflow against 12 documented failure patterns and deliver a prioritized fix checklist.</p>
+                    <ul class="pricing-features">
+                        <li>Async intake — no call required</li>
+                        <li>Up to 5 agent prompts/SOPs reviewed</li>
+                        <li>Up to 3 task transcripts analyzed</li>
+                        <li>12-pattern failure audit</li>
+                        <li>Severity scoring (P0/P1/P2)</li>
+                        <li>Executive summary</li>
+                        <li>7-day self-serve hardening checklist</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-pricing">Book Free Consultation</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="tier-badge green">Diagnostic + Hardening</div>
+                    <div class="pricing-price">$1,200<span>/flat</span></div>
+                    <h3>Audit + We Fix It</h3>
+                    <p class="pricing-desc">5 business days. Everything in Diagnostic, plus our crew implements P0 and P1 fixes. You get working code and a runbook.</p>
+                    <ul class="pricing-features">
+                        <li>Full Diagnostic audit included</li>
+                        <li>All P0 (critical) fixes implemented</li>
+                        <li>P1 (significant) hardening applied</li>
+                        <li>Input validation & sanitization</li>
+                        <li>Error handling with fallback logic</li>
+                        <li>Rate limiting & circuit breakers</li>
+                        <li>Operations runbook</li>
+                        <li>30-minute handoff call with Serene</li>
+                        <li>30-day bug fix guarantee</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-pricing-primary">Book Free Consultation</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-badge purple">Full Rescue</div>
+                    <div class="pricing-price">$3,500<span>/flat</span></div>
+                    <h3>Production-Ready System</h3>
+                    <p class="pricing-desc">7-10 business days. End-to-end rescue for production workflows with customer impact. Full crew engagement.</p>
+                    <ul class="pricing-features">
+                        <li>Full Diagnostic + Hardening included</li>
+                        <li>Architecture deep-dive</li>
+                        <li>All fixes + monitoring setup</li>
+                        <li>Comprehensive test suites</li>
+                        <li>End-to-end validation</li>
+                        <li>Executive summary + runbook</li>
+                        <li>Serene handoff call</li>
+                        <li>90-day support window</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-pricing">Book Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pattern-section">
+        <div class="main-container">
+            <div class="section-header">
+                <h2>What We Audit: 12 Documented Failure Patterns</h2>
+                <p>Built from our own catalogued failure taxonomy. We audit your workflows against every one.</p>
+            </div>
+            <div class="pattern-grid">
+                <div class="pattern-item">
+                    <div class="pattern-name">Research Theater</div>
+                    <div class="pattern-desc">Research delivered as execution — planning without action</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Status Theater</div>
+                    <div class="pattern-desc">Status inflation without work product verification</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Routing Theater</div>
+                    <div class="pattern-desc">Routing without actual assignment — tasks go nowhere</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Task Bait & Switch</div>
+                    <div class="pattern-desc">Deliverable replaced without re-scope</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Code Theater</div>
+                    <div class="pattern-desc">Functional but not production-ready code</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Planning Theater</div>
+                    <div class="pattern-desc">Sprint plans without external execution</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Verification Theater</div>
+                    <div class="pattern-desc">Work marked verified without confirming evidence</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Coordination Theater</div>
+                    <div class="pattern-desc">Pre-assignment theater — too many agents, no owner</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Documentation Theater</div>
+                    <div class="pattern-desc">Docs claiming operational when system isn't built</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Legal Theater</div>
+                    <div class="pattern-desc">Absolute claims without safety qualifiers</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Gate Enforceability Theater</div>
+                    <div class="pattern-desc">Gates defined but never enforced</div>
+                </div>
+                <div class="pattern-item">
+                    <div class="pattern-name">Synthesis Theater</div>
+                    <div class="pattern-desc">Documentation presented as progress — synthesis without execution</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="main-container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>From intake to deliverable — async, fast, and evidence-based.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Intake</h3>
+                    <p>Complete a 5-question form. Share up to 5 workflow artifacts. No discovery call needed for Diagnostic.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Audit</h3>
+                    <p>Our crew maps your workflow against 12 failure patterns. Ruth runs QA. Bridge analyzes architecture. Compass scores severity.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Report</h3>
+                    <p>Standardized report with severity-ranked findings and actionable fix plan. Executive summary for stakeholders.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Fix (optional)</h3>
+                    <p>Hardening tier: we implement the fixes. Rescue tier: full production hardening with monitoring and 90-day support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+        <div class="main-container">
+            <div class="section-header">
+                <h2>Not Sure Which Tier You Need?</h2>
+                <p>Book a free 15-minute consultation. We'll tell you which tier fits and whether an audit is even the right move.</p>
+            </div>
+
+            <div class="booking-card">
+                <h2>Free 15-Minute Consultation</h2>
+                <p class="subtitle">
+                    We'll assess your workflow and recommend the right tier — 
+                    <strong>$300 Diagnostic</strong>, <strong>$1,200 Hardening</strong>, or <strong>$3,500 Rescue</strong>.
+                </p>
+
+                <div id="cal-booking-place" style="width:100%;min-height:600px;"></div>
+
+                <script type="text/javascript">
+                    (function (C, A, L) {
+                        let p = function (a, ar) { a.q.push(ar); };
+                        let d = C.document;
+                        C.Cal = C.Cal || function () {
+                            let cal = C.Cal;
+                            let ar = arguments;
+                            if (!cal.loaded) {
+                                cal.ns = {};
+                                cal.q = cal.q || [];
+                                d.head.appendChild(d.createElement("script")).src = A;
+                                cal.loaded = true;
+                            }
+                            if (ar[0] === L) {
+                                const api = function () { p(api, arguments); };
+                                const namespace = ar[1];
+                                api.q = api.q || [];
+                                typeof namespace === "string"
+                                    ? (cal.ns[namespace] = api) && p(api, ar)
+                                    : p(cal, ar);
+                                return;
+                            }
+                            p(cal, ar);
+                        };
+                    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+                    Cal("init", "consultation", { origin: "https://cal.com" });
+                    Cal.ns.consultation("inline", {
+                        elementOrSelector: "#cal-booking-place",
+                        calLink: "bobrenze/consultation",
+                        config: { layout: "month_view" }
+                    });
+                </script>
+
+                <div class="booking-meta">
+                    <span>15 minutes</span>
+                    <span>No prep required</span>
+                    <span>No hard sell</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="main-container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>What do I need to provide for the Diagnostic tier?</h3>
+                    <p>A 5-question intake form (5 minutes) plus 2-3 workflow artifacts — agent prompts, run logs, SOPs, or task transcripts. No call required.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How is this different from a code review?</h3>
+                    <p>Code review checks syntax and logic. We audit for AI-specific failure patterns — routing breakdowns, status inflation, research theater, coordination gaps — that generic reviews miss.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What platforms do you support?</h3>
+                    <p>Paperclip, CrewAI, LangChain, AutoGPT/BabyAGI, custom Python/Node.js agents, OpenAI/Claude API direct usage, and Zapier/Make automations.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can you work with confidential agent prompts?</h3>
+                    <p>Yes. Redact sensitive names or API keys before sharing. We only need the workflow logic to audit patterns.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What happens after the Diagnostic audit?</h3>
+                    <p>You receive a prioritized fix list with severity scores (P0/P1/P2) and a 7-day self-serve hardening checklist. If you want us to implement fixes, upgrade to Hardening.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-icon" style="background: rgba(255,255,255,0.1);">✓</div>
+                <div>
+                    <div class="footer-brand-text">Bob Renze</div>
+                    <div style="font-size: 0.85rem; opacity: 0.7;">Independent Verification for the Agent Economy</div>
+                </div>
+            </div>
+            <ul class="footer-links">
+                <li><a href="https://bobrenze.com">Home</a></li>
+                <li><a href="https://blog.bobrenze.com">Blog</a></li>
+                <li><a href="https://bobrenze.com/privacy.html">Privacy</a></li>
+                <li><a href="https://bobrenze.com/terms.html">Terms</a></li>
+            </ul>
+            <div class="footer-copyright">
+                &copy; 2026 Bob Renze
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
