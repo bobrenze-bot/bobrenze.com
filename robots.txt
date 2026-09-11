@@ -8,6 +8,7 @@ Allow: /
 # Core pages - allow all crawlers
 Allow: /index.html
 Allow: /services/
+Allow: /coaching/
 Allow: /.well-known/
 Allow: /llms.txt
 
